@@ -16,9 +16,47 @@ class FirstRoute extends StatefulWidget {
 }
 
 class _FirstRouteState extends State<FirstRoute> {
+  int _currentIndex = 0;
+  final tabs = [
+    Center(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home, color: Colors.indigo),
+              title: Text(
+                "Home",
+                style: TextStyle(color: Colors.indigo),
+              ),
+              backgroundColor: Colors.indigo),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.settings,
+                color: Colors.indigo,
+              ),
+              title: Text(
+                "Settings",
+                style: TextStyle(color: Colors.indigo),
+              ),
+              backgroundColor: Colors.indigo),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.folder, color: Colors.indigo),
+              title: Text(
+                "Saved",
+                style: TextStyle(color: Colors.indigo),
+              ),
+              backgroundColor: Colors.indigo),
+        ],
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+      ),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(35.0),
         child: AppBar(
@@ -1685,6 +1723,40 @@ class _ThirdRoute8State extends State<ThirdRoute8> {
                 margin: EdgeInsets.all(5.0),
                 alignment: Alignment.center,
               ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.indigo,
+                  borderRadius: BorderRadius.circular(30.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(1.0),
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      // changes position of shadow
+                    ),
+                  ],
+                ),
+                height: 120.0,
+                width: 400.0,
+                padding: EdgeInsets.all(5.0),
+                margin: EdgeInsets.all(5.0),
+                alignment: Alignment.center,
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                  },
+                  child: Text(
+                    "Nützliche Sätze",
+                    style: TextStyle(
+                        fontSize: 32.0,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white),
+                  ),
+                ),
+              ),
             ],
           ),
         ));
@@ -1737,6 +1809,40 @@ class _ThirdRoute9State extends State<ThirdRoute9> {
                 margin: EdgeInsets.all(5.0),
                 alignment: Alignment.center,
               ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.indigo,
+                  borderRadius: BorderRadius.circular(30.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(1.0),
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      // changes position of shadow
+                    ),
+                  ],
+                ),
+                height: 120.0,
+                width: 400.0,
+                padding: EdgeInsets.all(5.0),
+                margin: EdgeInsets.all(5.0),
+                alignment: Alignment.center,
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage1()),
+                    );
+                  },
+                  child: Text(
+                    "Nützliche Sätze",
+                    style: TextStyle(
+                        fontSize: 32.0,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white),
+                  ),
+                ),
+              ),
             ],
           ),
         ));
@@ -1788,6 +1894,40 @@ class _ThirdRoute10State extends State<ThirdRoute10> {
                 padding: EdgeInsets.all(5.0),
                 margin: EdgeInsets.all(5.0),
                 alignment: Alignment.center,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.indigo,
+                  borderRadius: BorderRadius.circular(30.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(1.0),
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      // changes position of shadow
+                    ),
+                  ],
+                ),
+                height: 120.0,
+                width: 400.0,
+                padding: EdgeInsets.all(5.0),
+                margin: EdgeInsets.all(5.0),
+                alignment: Alignment.center,
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage2()),
+                    );
+                  },
+                  child: Text(
+                    "Nützliche Sätze",
+                    style: TextStyle(
+                        fontSize: 32.0,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white),
+                  ),
+                ),
               ),
             ],
           ),
@@ -5632,20 +5772,6 @@ class _FifthRoute6State extends State<FifthRoute6> {
   }
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomePage(),
-    );
-  }
-}
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -5654,7 +5780,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   List<String> sentenses = [
-    "Wie gehts dir?",
+    "Press",
     "Naaa",
     "Lol",
     "Ficker",
@@ -5666,7 +5792,119 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.indigo,
-          title: Text("BeGentle"),
+          title: Text("Dates"),
+        ),
+        body: InkWell(
+            onTap: () {
+              setState(() {
+                _selectedIndex = Random().nextInt(5);
+              });
+            },
+            child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.indigo,
+                  borderRadius: BorderRadius.circular(30.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(1.0),
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      // changes position of shadow
+                    ),
+                  ],
+                ),
+                height: 1200.0,
+                width: 400.0,
+                padding: EdgeInsets.all(30.0),
+                margin: EdgeInsets.all(30.0),
+                alignment: Alignment.center,
+                child: Text(
+                  sentenses[_selectedIndex],
+                  style: TextStyle(
+                      fontSize: 32.0,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white),
+                ))));
+  }
+}
+
+class HomePage1 extends StatefulWidget {
+  @override
+  _HomePage1State createState() => _HomePage1State();
+}
+
+class _HomePage1State extends State<HomePage1> {
+  int _selectedIndex = 0;
+  List<String> sentenses = [
+    "Press",
+    "Naaa",
+    "Lol",
+    "Ficker",
+    "Mika ist eine geile Sau",
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.indigo,
+          title: Text("Deeptalk"),
+        ),
+        body: InkWell(
+            onTap: () {
+              setState(() {
+                _selectedIndex = Random().nextInt(5);
+              });
+            },
+            child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.indigo,
+                  borderRadius: BorderRadius.circular(30.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(1.0),
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      // changes position of shadow
+                    ),
+                  ],
+                ),
+                height: 1200.0,
+                width: 400.0,
+                padding: EdgeInsets.all(30.0),
+                margin: EdgeInsets.all(30.0),
+                alignment: Alignment.center,
+                child: Text(
+                  sentenses[_selectedIndex],
+                  style: TextStyle(
+                      fontSize: 32.0,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white),
+                ))));
+  }
+}
+
+class HomePage2 extends StatefulWidget {
+  @override
+  _HomePage2State createState() => _HomePage2State();
+}
+
+class _HomePage2State extends State<HomePage2> {
+  int _selectedIndex = 0;
+  List<String> sentenses = [
+    "Press",
+    "Naaa",
+    "Lol",
+    "Ficker",
+    "Mika ist eine geile Sau",
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.indigo,
+          title: Text("Smalltalk"),
         ),
         body: InkWell(
             onTap: () {
